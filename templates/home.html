@@ -1,0 +1,403 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ArchiveXStudio
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+    radial-gradient(circle at top left,#2b0000,#070707 60%);
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:90px 20px 40px;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,0,0,0.08);
+    filter:blur(120px);
+    top:-150px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:-1;
+}
+
+.hero h1{
+    font-size:75px;
+    color:white;
+    margin-bottom:20px;
+    letter-spacing:2px;
+
+    text-shadow:
+    0 0 20px rgba(255,0,0,0.3),
+    0 0 40px rgba(255,0,0,0.2);
+}
+
+.hero p{
+    font-size:22px;
+    color:#cccccc;
+    max-width:850px;
+    margin:auto;
+    line-height:1.7;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:45px;
+    padding:60px;
+    perspective:2000px;
+}
+
+/* CARD */
+
+.card{
+
+    position:relative;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(25,25,25,0.95),
+    rgba(8,8,8,0.98)
+    );
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    transition:0.5s ease;
+
+    transform-style:preserve-3d;
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,0.6),
+    inset 0 1px 1px rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(15px);
+}
+
+.card:hover{
+
+    transform:
+    rotateX(8deg)
+    rotateY(-8deg)
+    translateY(-18px)
+    scale(1.02);
+
+    box-shadow:
+    0 40px 70px rgba(0,0,0,0.8),
+    0 0 35px rgba(255,0,0,0.15);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+    130deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+    );
+
+    transform:translateX(-100%);
+    transition:0.8s;
+}
+
+.card:hover::before{
+    transform:translateX(100%);
+}
+
+/* IMAGE */
+
+.card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+
+    transition:0.5s ease;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+/* CONTENT */
+
+.card-content{
+    padding:28px;
+}
+
+.card h2{
+    color:white;
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.price{
+    color:#ff3434;
+    font-size:34px;
+    font-weight:bold;
+    margin-bottom:25px;
+
+    text-shadow:
+    0 0 12px rgba(255,0,0,0.4);
+}
+
+/* BUTTONS */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.buy-btn{
+
+    display:inline-block;
+
+    background:
+    linear-gradient(
+    145deg,
+    #ff1a1a,
+    #ff3d3d
+    );
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    transition:0.4s ease;
+
+    box-shadow:
+    0 15px 30px rgba(255,0,0,0.3);
+}
+
+.buy-btn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.04);
+
+    box-shadow:
+    0 25px 45px rgba(255,0,0,0.45);
+}
+
+.cart-btn{
+
+    background:transparent;
+
+    color:white;
+
+    padding:15px 28px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    border:1px solid rgba(255,0,0,0.5);
+
+    transition:0.4s ease;
+
+    backdrop-filter:blur(10px);
+}
+
+.cart-btn:hover{
+
+    background:rgba(255,0,0,0.12);
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 15px 30px rgba(255,0,0,0.15);
+}
+
+/* FLOATING LIGHTS */
+
+.light{
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,0,0,0.08);
+    filter:blur(120px);
+    z-index:-1;
+}
+
+.light1{
+    top:250px;
+    left:-100px;
+}
+
+.light2{
+    bottom:0;
+    right:-100px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .gallery{
+        padding:25px;
+    }
+
+    .card h2{
+        font-size:30px;
+    }
+
+    .price{
+        font-size:26px;
+    }
+
+}
+
+</style>
+
+<div class="light light1"></div>
+<div class="light light2"></div>
+
+<div class="hero">
+
+    <h1>ArchiveXStudio</h1>
+
+    <p>
+        Discover luxury digital artworks crafted with emotion,
+        imagination and futuristic premium experiences.
+    </p>
+
+</div>
+
+<div class="gallery">
+
+    <!-- PRODUCT 1 -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+            <h2>Crimson Dreams</h2>
+
+            <div class="price">₹1,499</div>
+
+            <div class="button-group">
+
+                <a href="{% url 'cart' %}" class="buy-btn">
+                    Buy Now
+                </a>
+
+                <a href="{% url 'add_to_cart' 1 %}" class="cart-btn">
+    Add To Cart
+</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUCT 2 -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+            <h2>Cyber Silence</h2>
+
+            <div class="price">₹2,299</div>
+
+            <div class="button-group">
+
+                <a href="{% url 'cart' %}" class="buy-btn">
+                    Buy Now
+                </a>
+
+               <a href="{% url 'add_to_cart' 2 %}" class="cart-btn">
+    Add To Cart
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUCT 3 -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+            <h2>Ocean Echo</h2>
+
+            <div class="price">₹1,999</div>
+
+            <div class="button-group">
+
+                <a href="{% url 'cart' %}" class="buy-btn">
+                    Buy Now
+                </a>
+
+           <a href="{% url 'add_to_cart' 3 %}" class="cart-btn">
+    Add To Cart
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

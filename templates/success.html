@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Order Success
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.success-container{
+
+    max-width:700px;
+
+    margin:70px auto;
+
+    padding:50px;
+
+    background:#0f0f0f;
+
+    border-radius:35px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.6);
+
+}
+
+.success-icon{
+
+    font-size:90px;
+
+    margin-bottom:20px;
+
+}
+
+.success-title{
+
+    color:white;
+
+    font-size:50px;
+
+    margin-bottom:20px;
+
+}
+
+.success-text{
+
+    color:#ccc;
+
+    font-size:20px;
+
+    margin-bottom:40px;
+
+    line-height:1.6;
+
+}
+
+.home-btn{
+
+    display:inline-block;
+
+    background:red;
+
+    color:white;
+
+    padding:18px 45px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+
+.home-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+</style>
+
+<div class="success-container">
+
+    <div class="success-icon">
+        🎉
+    </div>
+
+    <h1 class="success-title">
+        Order Successful
+    </h1>
+
+    <p class="success-text">
+
+        Thank you for shopping with ArchiveXStudio.
+
+        Your payment has been received successfully.
+
+    </p>
+
+    <a href="/"
+    class="home-btn">
+
+        Return To Home
+
+    </a>
+
+</div>
+
+{% endblock %}

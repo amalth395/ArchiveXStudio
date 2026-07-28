@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Payment
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.payment-container{
+
+    max-width:700px;
+
+    margin:60px auto;
+
+    padding:50px;
+
+    background:#0f0f0f;
+
+    border-radius:35px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.6);
+
+}
+
+.payment-title{
+
+    color:white;
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.payment-text{
+
+    color:#ccc;
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+}
+
+.amount-text{
+
+    color:#00ff95;
+
+    font-size:50px;
+
+    font-weight:bold;
+
+    margin-bottom:35px;
+
+}
+
+.qr-box{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    display:inline-block;
+
+    margin-bottom:30px;
+
+}
+
+.qr-box img{
+
+    width:280px;
+
+    height:280px;
+
+    object-fit:cover;
+
+}
+
+.upi-title{
+
+    color:#bbb;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+.upi-id{
+
+    color:#ff2e2e;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    margin-bottom:35px;
+
+}
+
+.payment-btn{
+
+    display:inline-block;
+
+    background:red;
+
+    color:white;
+
+    padding:18px 45px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+
+.payment-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+</style>
+
+<div class="payment-container">
+
+    <h1 class="payment-title">
+        Complete Payment
+    </h1>
+
+    <p class="payment-text">
+
+        Scan QR code or send payment
+        using the UPI ID below
+
+    </p>
+
+    <h2 class="amount-text">
+
+        ₹{{ total_amount }}
+
+    </h2>
+
+    <!-- QR CODE -->
+
+    <div class="qr-box">
+
+        <img src="/static/images/upi-qr.png"
+        alt="UPI QR">
+
+    </div>
+
+    <!-- UPI ID -->
+
+    <div class="upi-title">
+
+        Pay To UPI ID
+
+    </div>
+
+    <div class="upi-id">
+
+        archivexstudio@upi
+
+    </div>
+
+    <!-- SUCCESS BUTTON -->
+
+    <a href="/success/"
+    class="payment-btn">
+
+        Payment Completed
+
+    </a>
+
+</div>
+
+{% endblock %}

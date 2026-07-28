@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/policy.css' %}">
+
+<div class="policy-hero">
+    <h1>Privacy Policy</h1>
+</div>
+
+<div class="policy-container">
+
+<div class="policy-card">
+
+<div class="policy-icon">
+<i class="fas fa-user-shield"></i>
+</div>
+
+<h2>Your Privacy Matters</h2>
+
+<p>
+At ArchiveXStudio, we value your trust. Your personal information is used only for processing orders, improving your shopping experience, and providing customer support.
+</p>
+
+</div>
+
+<div class="policy-card">
+
+<div class="policy-icon">
+<i class="fas fa-credit-card"></i>
+</div>
+
+<h2>Secure Payments</h2>
+
+<p>
+All payments are securely processed through Razorpay. We never store your card details or banking credentials.
+</p>
+
+</div>
+
+<div class="policy-card">
+
+<div class="policy-icon">
+<i class="fas fa-lock"></i>
+</div>
+
+<h2>Data Protection</h2>
+
+<p>
+Your information is encrypted and handled with industry-standard security practices to keep your data safe.
+</p>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -309,25 +309,41 @@ body{
     }
 
     .hero h1{
-        font-size:48px;
-    }
+    font-size:42px;
+}
 
     .hero p{
-        font-size:18px;
-        line-height:1.8;
-    }
+    font-size:16px;
+    max-width:100%;
+    padding:0 10px;
+}
 
-    .product-grid{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        gap:30px;
-    }
+    .gallery{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:25px;
+    padding:15px;
+}
+.card-content{
+    padding:20px;
+}
 
-    .product-card{
-        width:90%;
-        max-width:380px;
-    }
+.card h2{
+    font-size:28px;
+}
+
+.price{
+    font-size:24px;
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    margin:auto;
+}
+.card img{
+    height:250px;
+}
 
     .button-group{
         flex-direction:column;
@@ -337,6 +353,10 @@ body{
     .cart-btn{
         width:100%;
     }
+    .buy-btn,
+.cart-btn{
+    text-align:center;
+}
 }
 
 </style>
